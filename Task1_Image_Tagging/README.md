@@ -1,4 +1,4 @@
-# Task 1 — Image Tagging with CNN
+# Task 1 Image Tagging with CNN
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ratwet/ShadowFox/blob/Preview/Task1_Image_Tagging/Image_Tagging_CNN_FINAL.ipynb)
 [![Level](https://img.shields.io/badge/Level-Beginner-brightgreen)]()
