@@ -1,4 +1,4 @@
-# Task 1 Image Tagging with CNN
+# Task 1 - Image Tagging with CNN
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ratwet/ShadowFox/blob/Preview/Task1_Image_Tagging/Image_Tagging_CNN_FINAL.ipynb)
 [![Level](https://img.shields.io/badge/Level-Beginner-brightgreen)]()
@@ -6,7 +6,7 @@
 
 [← Back to main README](../README.md)
 
-**Objective:** Build and train a Convolutional Neural Network **from scratch** — no pretrained weights — to classify images into 10 categories using the CIFAR-10 dataset.
+**Objective:** Build and train a Convolutional Neural Network **from scratch** (no pretrained weights) to classify images into 10 categories using the CIFAR-10 dataset.
 
 > **Result: 74.07% test accuracy** (0.7495 test loss) after 25 epochs on a Tesla T4 GPU.
 
@@ -33,7 +33,7 @@ Develop a practical image tagging solution by training a CNN capable of categori
 
 ## Dataset
 
-**CIFAR-10** — a standard benchmark image classification dataset, loaded directly from the [official University of Toronto CS host](https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz) (~170 MB archive).
+**CIFAR-10** - a standard benchmark image classification dataset, loaded directly from the [official University of Toronto CS host](https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz) (~170 MB archive).
 
 | Property | Value |
 |---|---|
@@ -75,7 +75,7 @@ Flatten -> Dense(128) -> Dropout(0.5) -> Dense(10, softmax)
 | Validation split | 10% (45,000 train / 5,000 val) |
 | Early stopping | patience=5 |
 | LR scheduler | ReduceLROnPlateau (factor=0.5) |
-| Hardware | Google Colab — Tesla T4 GPU |
+| Hardware | Google Colab - Tesla T4 GPU |
 
 **Data Augmentation applied:** Horizontal flip, rotation (10%), zoom (10%)
 
@@ -126,10 +126,10 @@ Per-class precision, recall, and F1-score computed on the full 10,000-image test
 | weighted avg | 0.75 | 0.74 | 0.73 |
 
 **Key observations:**
-- **Strongest classes** are rigid, man-made objects with consistent silhouettes — `automobile` (F1 0.89), `ship` (0.87), and `truck` (0.83).
-- **Weakest class is `cat`** (F1 0.53, recall only 0.44) — the model misses more than half of all cat images, most likely confusing them with `dog` (also comparatively weak at F1 0.63) or other small quadrupeds.
+- **Strongest classes** are rigid, man-made objects with consistent silhouettes - `automobile` (F1 0.89), `ship` (0.87), and `truck` (0.83).
+- **Weakest class is `cat`** (F1 0.53, recall only 0.44) - the model misses more than half of all cat images, most likely confusing them with `dog` (also comparatively weak at F1 0.63) or other small quadrupeds.
 - **`frog` shows a precision/recall imbalance** (0.58 precision vs. 0.90 recall): the model over-predicts "frog," catching almost every true frog but at the cost of frequent false positives from other classes.
-- Overall accuracy (0.74) and macro/weighted F1 (0.73) are closely aligned, indicating no class-imbalance distortion — expected, since the CIFAR-10 test set is perfectly balanced at 1,000 images per class.
+- Overall accuracy (0.74) and macro/weighted F1 (0.73) are closely aligned, indicating no class-imbalance distortion - expected, since the CIFAR-10 test set is perfectly balanced at 1,000 images per class.
 
 ---
 
